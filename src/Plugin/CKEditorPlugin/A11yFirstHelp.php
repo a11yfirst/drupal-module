@@ -10,6 +10,7 @@ namespace Drupal\a11yfirst\Plugin\CKEditorPlugin;
 use Drupal\ckeditor\CKEditorPluginBase;
 use Drupal\ckeditor\CKEditorPluginInterface;
 use Drupal\ckeditor\CKEditorPluginButtonsInterface;
+use Drupal\ckeditor\CKEditorPluginConfigurableInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
 
@@ -21,7 +22,7 @@ use Drupal\editor\Entity\Editor;
  *   label = @Translation("A11yFirstHelp")
  * )
  */
-class A11yFirstHelp extends CKEditorPluginBase implements CKEditorPluginInterface, CKEditorPluginButtonsInterface {
+class A11yFirstHelp extends CKEditorPluginBase implements CKEditorPluginInterface, CKEditorPluginButtonsInterface, CKEditorPluginConfigurableInterface {
 
   /**
    * Implements Drupal\ckeditor\CKEditorPluginButtonsInterface::getButtons().
@@ -45,7 +46,12 @@ class A11yFirstHelp extends CKEditorPluginBase implements CKEditorPluginInterfac
    * Implements Drupal\ckeditor\CKEditorPluginInterface::getConfig().
    */
   function getConfig(Editor $editor) {
-    return [];
+    $settings = $editor->getSettings();
+    if (!isset($settings['plugins']['a11yfirsthelp'])) {
+      return [];
+    }
+    // The plugin code wants the settings inside a common container.
+    return ['a11yfirst' => $settings['plugins']['a11yfirsthelp']];
   }
 
   /**
@@ -67,5 +73,50 @@ class A11yFirstHelp extends CKEditorPluginBase implements CKEditorPluginInterfac
    */
   function getLibraries(Editor $editor) {
     return [];
+  }
+
+  /**
+   * Implements Drupal\ckeditor\CKEditorPluginConfigurableInterface::settingsForm().
+   */
+  function settingsForm(array $form, FormStateInterface $form_state, Editor $editor) {
+    // Defaults.
+    $config = [
+      'organization' => '',
+      'a11yPolicyLink' => '',
+      'a11yPolicyLabel' => '',
+    ];
+    $settings = $editor->getSettings();
+    if (isset($settings['plugins']['a11yfirsthelp'])) {
+      $config = $settings['plugins']['a11yfirsthelp'];
+    }
+
+    $form['boilerplate'] = [
+      '#title' => 'Importance of Accessibility',
+      '#type' => 'item',
+      '#description' => 'Optional. Use these fields to customize the text in “About A11yFirst”.',
+    ];
+
+    $form['organization'] = [
+      '#title' => $this->t('Organization'),
+      '#type' => 'textfield',
+      '#default_value' => $config['organization'],
+      // TODO: validation
+    ];
+
+    $form['a11yPolicyLink'] = [
+      '#title' => $this->t('Accessibility Policy link'),
+      '#type' => 'textfield',
+      '#default_value' => $config['a11yPolicyLink'],
+      // TODO: validation
+    ];
+
+    $form['a11yPolicyLabel'] = [
+      '#title' => $this->t('Label for Accessibility Policy link'),
+      '#type' => 'textfield',
+      '#default_value' => $config['a11yPolicyLabel'],
+      // TODO: validation
+    ];
+
+    return $form;
   }
 }
