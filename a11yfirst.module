@@ -1,1 +1,27 @@
 <?php
+
+/**
+ * @file
+ * Provides A11yFirst integration with CKEditor.
+ */
+
+use Drupal\editor\Entity\Editor;
+
+/**
+ * Implements hook_ckeditor_css_alter().
+ *
+ * @param array $css
+ * @param Drupal\editor\Entity\Editor $editor
+ */
+function a11yfirst_ckeditor_css_alter(array &$css, Editor $editor) {
+  $css[] = drupal_get_path('module', 'a11yfirst') . '/css/a11yfirst.css';
+}
+
+/**
+ * Implements hook_preprocess_html().
+ *
+ * @param array $variables
+ */
+function a11yfirst_preprocess_html(&$variables) {
+  $variables['#attached']['library'][] = 'a11yfirst/a11yfirst.style';
+}
