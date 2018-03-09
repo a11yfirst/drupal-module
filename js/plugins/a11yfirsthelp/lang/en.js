@@ -66,14 +66,17 @@ text or understand images.\n\
 \n\
 ### A11yFirst Toolbar Features\n\
 \n\
-* **Heading**: Assists you in choosing the proper heading levels to make the\n\
-heading structure in your document more meaningful to readers.\n\
-\n\
-* **Paragraph Format**: Provides special formatting for blocks of text (e.g.\n\
-paragraphs) within your document.\n\
+* **Heading/Paragaph**: Assists you in choosing the proper heading levels to make the\n\
+heading structure in your document more meaningful to readers and provides special\n\
+formatting for blocks of text (e.g. paragraphs) within your document.\n\
 \n\
 * **Character Style**: Provides styling to highlight or emphasize a word or group\n\
 of words (i.e. characters) within a block of text.\n\
+\n\
+* **Link**: Checks the accessibility of *Display Text* when adding or editing links.\n\
+\n\
+* **A11yFirst Help**: Provides information on the important features of accessible\n\
+documents.\n\
 \n\
 ### Project Information\n\
 \n\
@@ -103,35 +106,56 @@ GitHub Repository: <a href="https://github.com/a11yfirst/plugins-dev" target="_r
   },
 
   headingHelp: {
-    'menu':  'Heading',
-    'label': 'Heading',
-    'title': 'Heading Help',
+    'menu':  'Heading / Paragraph',
+    'label': 'Heading / Paragraph',
+    'title': 'Heading / Paragraph Help',
     'content': '\
-## Heading\n\
+## Heading / Paragraph\n\
 \n\
-### How it works\n\
-* The Heading menu only enables the **allowed** heading levels.\n\
+### Menu items\n\
+* **H1 – Document title** — Typically should be the first heading in the\n\
+  document and used only once.\n\
+* **H2 – Section title** — Describes a main or top-level section in the\n\
+  document.\n\
+* **H3 to H6 – Subsection title** — Describes a subsection within a top-level\n\
+  section or other subsection of the document.\n\
+* **Normal** — The default paragraph format, typically with significant top\n\
+  and bottom margins.\n\
+* **Preformatted** — Use this for computer code blocks to maintain spacing\n\
+  and indentation.\n\
+* **Address** — Omits the top and bottom margins of normal paragraph, and\n\
+  formats the text in italics.\n\
+\n\
+### About headings\n\
+* The Heading / Paragraph menu only enables the **allowed** heading levels.\n\
 \n\
 * The cursor position relative to other headings in the document determines\n\
 which heading levels are allowed.\n\
 \n\
-* To create a new heading, move the cursor to a text block and select an\n\
-allowed heading level.\n\
+### About paragraph formats\n\
+* Visual styling for paragraph formats is predetermined by your organization,\n\
+thus freeing up your time and energy for concentrating on the structure and\n\
+meaning of the content within your document.\n\
 \n\
-* To convert a heading to normal text, move the cursor to a heading and select\n\
-the *Normal text* option.\n\
-\n\
-### Why it\'s important\n\
+### Why headings and paragraph formats are important\n\
 * The purpose of a heading is to label the content that follows it.\n\
 \n\
 * The proper nesting of heading levels improves the ability of all users to\n\
-find and read information on a page.\n\
+find and comprehend information on a page.\n\
 \n\
 * Headings used consistently and in meaningful ways improve Search Engine\n\
 Optimization (SEO).\n\
 \n\
 * Properly nested headings enable people using assistive technologies to easily\n\
 navigate to each section of a document.\n\
+\n\
+* When paragraph formats are used properly (e.g. *Preformatted* or *Address*),\n\
+they help users of assistive technologies understand the intended role of the\n\
+content.\n\
+\n\
+* Thinking in terms of blocks such as headings and paragraph formats within\n\
+your document is a higher-level approach to providing structure and semantics\n\
+that are important for all users.\n\
 \n\
 ### More information\n\
 * Documents are easier to read and understand when headings identify the topics\n\
@@ -157,51 +181,6 @@ level to label each subsection.\n\
 * Heading levels should **never** be used for inline visual styling of content\n\
 (e.g. larger or smaller font size, bold or italic). Instead, use the `Inline\n\
 Style` options.\n\
-'
-  },
-
-  blockFormatHelp: {
-    'menu':  'Paragraph Format',
-    'label': 'Paragraph Format',
-    'title': 'Paragraph Format Help',
-    'content': '\
-## Paragraph Format\n\
-\n\
-### How it works\n\
-\n\
-* A paragraph format can be applied by placing your cursor within a text\n\
-block and selecting an item from the *Paragraph Format* menu.\n\
-\n\
-* The baseline format is *Normal*, which is a simple paragraph. When a\n\
-paragraph has no other active format applied, its format is Normal.\n\
-\n\
-* To remove one of the other paragraph formats such as *Preformatted* or\n\
-*Address*, either toggle it off by selecting it in the menu, or select the\n\
-*Normal* option from the menu.\n\
-\n\
-* Headings are a specialized type of paragraph format used to label logical\n\
-sections of a document, or to specify the document title, and are selected\n\
-using the *Heading* menu.\n\
-\n\
-### Why it\'s important\n\
-\n\
-* Thinking in terms of blocks such as paragraphs and section headings within\n\
-your document is a higher-level approach to providing structure and semantics\n\
-that are important for all users.\n\
-\n\
-* When paragraph formats are used properly (e.g. *Preformatted text* or\n\
-*Address*), they help users of assistive technologies understand the intended\n\
-role of the content.\n\
-\n\
-* Visual styling for paragraph formats is predetermined by your organization,\n\
-thus freeing up your time and energy for concentrating on the structure and\n\
-meaning of the content within your document.\n\
-\n\
-### More information\n\
-\n\
-* <a href="https://en.wikiversity.org/wiki/Technical_writing" target="_resource">Wikiversity: Technical writing</a>\n\
-\n\
-* <a href="https://en.wikipedia.org/wiki/Chunking_&lpar;writing&rpar;" target="_resource">Chunking (writing)</a>\n\
 '
   },
 
@@ -258,31 +237,33 @@ make it easier for you to maintain stylistic consistency.\n\
     'content' : '\
 ## Link\n\
 \n\
-### How it works\n\
+### Display Text\n\
 \n\
-* When the *Link* button is activated, the *Link* dialog is displayed with\n\
-the focus set to the *URL* field. If a text selection was previously made,\n\
-the *Display Text* field is populated with the selected text.\n\
+Providing accessible *Display Text* is straightforward if you keep the following guidelines in mind:\n\
 \n\
-* However, if you activate the *Link* button with an empty selection, the\n\
-default behavior is to use the *URL* text as the *Display Text*. This is\n\
-problematic because URLs are often not very descriptive.\n\
+1. The *Display Text* for a link should describe the target of the link.\n\
 \n\
-### About display text\n\
+1. Do not use ambiguous text, such as “Click Here” or “More”.\n\
 \n\
-* The *Display Text* for a link should be descriptive, unique and start with\n\
+1. Do not begin the *Display Text* with redundant words or phrases such as “Link” or “Link to”.\n\
+\n\
+1. Be consistent: Links to the same URL should have the same *Display Text*.\n\
+\n\
+1. In most cases, it is best not to use the link URL as the *Display Text*.\n\
+\n\
+1. The *Use URL as Display Text* checkbox will override the previous guideline and must **only** be used in special circumstances.\n\
+\n\
+### About links\n\
+\n\
+* Screen reader users often use the “List of Links” feature to identify and navigate to links on a page. When links are presented as a list,  using descriptive *Display Text* becomes even more important since understanding the target of each link no longer benefits from its original context within the document.\n\
+\n\
+* Screen reader users often use the “Search” feature to find links on a page based on keywords they would expect to find in the *Display Text* of the links. Thus the more descriptive the link *Display Text*, the more effective the search feature will be in finding relevant links.\n\
+\n\
+* Usable and accessible *Display Text* should be descriptive, unique and start with\n\
 keywords (NNG).\n\
-\n\
-* The *Display Text* must **not** be empty, since it results in the URL being\n\
-used as the display text for the link.\n\
-\n\
-* The *Display Text* must **not** use ambiguous text, for example "Click Here"\n\
-or "More".\n\
 \n\
 * The *Display Text* for links is like a sign post. It should tell you what\n\
 you’ll find when you follow it (NOMENSA).\n\
-\n\
-* Be consistent: Links to the same URL should have the same *Display Text*.\n\
 \n\
 ### Why it\'s important\n\
 \n\
@@ -299,7 +280,7 @@ screen reader users to find and follow links of interest to them.\n\
 \n\
 ### More information\n\
 \n\
-* <a href="https://www.nomensa.com/blog/2011/writing-good-link-text" target="_resource">NNG: Writing Hyperlinks: Salient, Descriptive, Start with Keyword</a>\n\
+* <a href="https://www.nngroup.com/articles/writing-links/" target="_resource">NNG: Writing Hyperlinks: Salient, Descriptive, Start with Keyword</a>\n\
 \n\
 * <a href="https://www.nomensa.com/blog/2011/writing-good-link-text" target="_resource">NOMENSA: Writing good link text</a>\n\
 \n\
