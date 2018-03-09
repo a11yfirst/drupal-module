@@ -1,5 +1,5 @@
 {
-  "name": "drupal/a11yfirst",
+  "name": "mtholyoke/a11yfirst",
   "type": "drupal-module",
   "description": "Adds the A11yFirst plugins to CKEditor.",
   "keywords": ["Drupal"],
