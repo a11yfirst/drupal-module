@@ -1,0 +1,23 @@
+{
+  "name": "drupal/a11yfirst",
+  "type": "drupal-module",
+  "description": "Adds the A11yFirst plugins to CKEditor.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://a11yfirst.library.illinois.edu/",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "University of Illinois Library",
+      "role": "Owner"
+    }
+    {
+      "name": "Jason Proctor (jproctor)",
+      "homepage": "https://www.drupal.org/u/jproctor",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "drupal/fakeobjects": "^1.0"
+  }
+}

@@ -12,10 +12,8 @@ Drupal-specific documentation about what’s going on. Drupal likes to get its h
 
 Heading button highlights but doesn’t show ✓ for selected level.
 
-All menubutton/richcombo styles are different from [A11yFirst’s sample](https://a11yfirst.library.illinois.edu/demo/distribution/custom/a11yfirst.html).
+All button and dialog styles are different from [A11yFirst’s sample](https://a11yfirst.library.illinois.edu/demo/distribution/custom/a11yfirst.html).
 
 Implement some tests, maybe?
-
-Add `composer.json`.
 
 Figure out a better long-term home for this code. If that doesn’t include being a contrib module at drupal.org, figure out how to make Composer find it.
