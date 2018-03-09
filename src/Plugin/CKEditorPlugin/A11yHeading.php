@@ -30,12 +30,12 @@ class A11yHeading extends CKEditorPluginBase implements CKEditorPluginInterface,
   function getButtons() {
     return [
       'Heading' => [
-        'label' => $this->t('Heading'),
+        'label' => $this->t('Heading / Paragraph'),
         'image_alternative' => [
           '#type' => 'inline_template',
           '#template' => '<a href="#" role="button" aria-label="{{ a11yheading }}"><span class="ckeditor-button-dropdown">{{ a11yheading }}<span class="ckeditor-button-arrow"></span></span></a>',
           '#context' => [
-            'a11yheading' => $this->t('Heading'),
+            'a11yheading' => $this->t('Heading / Paragraph'),
           ],
         ],
       ],
@@ -79,7 +79,11 @@ class A11yHeading extends CKEditorPluginBase implements CKEditorPluginInterface,
    */
   function settingsForm(array $form, FormStateInterface $form_state, Editor $editor) {
     // Defaults.
-    $config = ['headings' => 'h1:h4', 'oneLevel1' => 1];
+    $config = [
+      'headings' => 'h1:h4',
+      'oneLevel1' => 1,
+      'format_tags' => 'p;pre;address',
+    ];
     $settings = $editor->getSettings();
     if (isset($settings['plugins']['a11yheading'])) {
       $config = $settings['plugins']['a11yheading'];
@@ -98,6 +102,14 @@ class A11yHeading extends CKEditorPluginBase implements CKEditorPluginInterface,
       '#type' => 'checkbox',
       '#default_value' => $config['oneLevel1'],
       '#description' => $this->t('If editors are allowed to use <code>&lt;h1&gt;</code>, check this box if they are only allowed to use it once per node.'),
+      // TODO: validation
+    ];
+
+    $form['format_tags'] = [
+      '#title' => $this->t('Paragraph Format tags'),
+      '#type' => 'textfield',
+      '#default_value' => $config['format_tags'],
+      '#description' => $this->t('A list of semicolon-separated style names (by default: tags) representing the style definition for each entry to be displayed in the Paragraph Format drop-down list in the toolbar. Currently only <code>p</code>, <code>pre</code>, and <code>address</code> are allowed.'),
       // TODO: validation
     ];
 
