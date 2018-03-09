@@ -50,10 +50,10 @@ class A11yStylesCombo extends CKEditorPluginBase implements CKEditorPluginInterf
   function getConfig(Editor $editor) {
     $config = [];
     $settings = $editor->getSettings();
-    if (!isset($settings['plugins']['stylescombo']['styles'])) {
+    if (!isset($settings['plugins']['a11ystylescombo']['styles'])) {
       return $config;
     }
-    $styles = $settings['plugins']['stylescombo']['styles'];
+    $styles = $settings['plugins']['a11ystylescombo']['styles'];
     $config['stylesSet'] = $this->generateStylesSetSetting($styles);
     return $config;
   }
@@ -88,8 +88,8 @@ class A11yStylesCombo extends CKEditorPluginBase implements CKEditorPluginInterf
     // Defaults.
     $config = ['styles' => ''];
     $settings = $editor->getSettings();
-    if (isset($settings['plugins']['stylescombo'])) {
-      $config = $settings['plugins']['stylescombo'];
+    if (isset($settings['plugins']['a11ystylescombo'])) {
+      $config = $settings['plugins']['a11ystylescombo'];
     }
 
     $form['styles'] = [
