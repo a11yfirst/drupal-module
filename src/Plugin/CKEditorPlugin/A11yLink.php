@@ -80,7 +80,7 @@ class A11yLink extends CKEditorPluginBase implements CKEditorPluginInterface, CK
     // Defaults.
     $config = [
       'linkShowAdvancedTab' => TRUE,
-      // 'linkShowTargetTab' => TRUE,
+      'linkShowTargetTab' => TRUE,
       // 'linkJavaScriptLinksAllowed' => FALSE,
     ];
     $settings = $editor->getSettings();
@@ -96,13 +96,13 @@ class A11yLink extends CKEditorPluginBase implements CKEditorPluginInterface, CK
       // TODO: validation
     ];
 
-    // $form['linkShowTargetTab'] = [
-    //   '#title' => $this->t('Show Target tab in link dialog'),
-    //   '#type' => 'checkbox',
-    //   '#default_value' => $config['linkShowAdvancedTab'],
-    //   '#description' => $this->t('Allows editors to specify a target for the link'),
-    //   // TODO: validation
-    // ];
+    $form['linkShowTargetTab'] = [
+      '#title' => $this->t('Show Target tab in link dialog'),
+      '#type' => 'checkbox',
+      '#default_value' => $config['linkShowTargetTab'],
+      '#description' => $this->t('Allows editors to specify a target for the link'),
+      // TODO: validation
+    ];
 
     // $form['linkJavaScriptLinksAllowed'] = [
     //   '#title' => $this->t('Allow links to JavaScript functions'),
