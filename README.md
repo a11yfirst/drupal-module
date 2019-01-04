@@ -6,6 +6,14 @@ This module adds the [A11yFirst CKEditor plugins](https://a11yfirst.library.illi
 
 Specifically, the source code of the plugins is copied from their [official distribution](https://github.com/a11yfirst/distribution) and included in this repo, since they are not otherwise independently available. This isn’t ideal, but it (mostly) works until someone comes up with a better plan.
 
+## Creating tar.gz file command
+
+Go to the Drupal module directory and issue the following command:
+
+```
+tar -czvf a11yfirst-drupal-module.tar.gz .
+```
+
 ## TODO
 
 Drupal-specific documentation about what’s going on. Drupal likes to get its hooks all over CKEditor config, so a lot of things that are managed internally in the official distribution become external with this integration. This is also not ideal, but it’s far easier than replacing the editor entirely (which would have the same problems, but for all the other config also).
