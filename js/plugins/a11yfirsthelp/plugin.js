@@ -21,7 +21,7 @@ CKEDITOR.plugins.add( 'a11yfirsthelp', {
         keyboardShortcutsValue = 'keyboardShortcuts',
         keyboardShortcutsCmd   = 'a11yHelp', // defined in a11yhelp plugin by CKSource
         helpTopics = config.a11yFirstHelpTopics,
-        helpTopicsKeys = Object.keys( helpTopics ),
+        helpTopicKeys = Object.keys( helpTopics ),
         menuStyle = new CKEDITOR.style( { element: 'p' } );
 
     // Load the separator script
@@ -60,21 +60,23 @@ CKEDITOR.plugins.add( 'a11yfirsthelp', {
       },
 
       init: function() {
-        for ( var i = 0; i < helpTopicsKeys.length; i++ ) {
-          var key = helpTopicsKeys[ i ];
+        for ( var i = 0; i < helpTopicKeys.length; i++ ) {
+          var key = helpTopicKeys[ i ];
           var label = lang[ key ].menu;
           var title = lang[ key ].title;
 
           // Add separator between list of help options and other items
-          if ( key === 'aboutA11yFirst' )
+          if ( key === 'gettingStarted' )
             this.addSeparator();
 
           // Add the entry to the panel list
           this.add( key, menuStyle.buildPreview( label ), title );
         }
 
+        /*
         this.add( keyboardShortcutsValue, menuStyle.buildPreview( lang.keyboardShortcutsLabel ),
           lang.keyboardShortcutsLabel );
+        */
       },
 
       onClick: function( value ) {
@@ -83,7 +85,7 @@ CKEDITOR.plugins.add( 'a11yfirsthelp', {
           return;
         }
         // editor.fire( 'saveSnapshot' );
-        if (helpTopicsKeys.indexOf( value ) !== -1) {
+        if (helpTopicKeys.indexOf( value ) !== -1) {
           editor.a11yfirst.helpOption = helpTopics[ value ].option;
           editor.execCommand( a11yFirstHelpDialogCmd );
         }
@@ -99,11 +101,20 @@ CKEDITOR.config.a11yFirstHelpTopics = {
   'headingHelp': {
     option:  'HeadingHelp'
   },
+  'listHelp': {
+    option:  'ListHelp'
+  },
+  'imageHelp': {
+    option:  'ImageHelp'
+  },
   'inlineStyleHelp': {
     option:  'InlineStyleHelp'
   },
   'linkHelp': {
     option:  'LinkHelp'
+  },
+  'gettingStarted': {
+    option:  'GettingStarted'
   },
   'aboutA11yFirst': {
     option:  'AboutA11yFirst'

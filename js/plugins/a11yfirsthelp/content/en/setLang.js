@@ -6,45 +6,11 @@ CKEDITOR.plugins.setLang( 'a11yfirsthelp', 'en', {
   label:        'A11yFirst Help',
   panelTitle:   'Learn about A11yFirst features',
   keyboardShortcutsLabel: 'Keyboard Shortcuts',
+  versionLabel: 'Version',
 
   a11yFirstHelpLabel: 'A11yFirst Help: Content Accessibility',
   a11yFirstHelpTitle: 'Information to help authors understand how the A11yFirst features help \
   them make content more accessible to people with disabilites',
-
-  aboutA11yFirst: {
-    'menu':  'About A11yFirst',
-    'label': 'About A11yFirst',
-    'title': 'About A11yFirst',
-
-    'no_org': '\
-## About A11yFirst\n\
-\n\
-### Importance of Accessibility\n\
-This organization has made a committment to accessibility, not only to comply with the \
-Americans with Disabilities Act (ADA) and Section 504 requirements, but also because making \
-sure everyone has equal access to the information in this website is the right thing \
-to do.\n\n\
-**You play an important part** in making sure this organization creates and maintains online \
-content that is accessible. The changes to the editor toolbar are designed to help you create \
-and maintain accessible content and learn more about accessibility.\n',
-
-    'has_org':'\
-## About A11yFirst\n\
-\
-### Importance of Accessibility\n\
-The %org has made a committment to accessibility, not only to comply with the Americans with \
-Disabilities Act (ADA) and Section 504 requirements, but also because making sure everyone has \
-equal access to the information in this website is the right thing to do.\n\n\
-**You play an important part** in making sure the %org creates and maintains online \
-content that is accessible. The changes to the editor toolbar are designed to help you create \
-and maintain accessible content and learn more about accessibility.\n',
-
-    'policy_link':  '\n[%policy_label](%policy_url)\n',
-
-    'content': '\
-ABOUTA11YFIRST\
-'
-  },
 
   headingHelp: {
     'menu':  'Heading / Paragraph',
@@ -52,6 +18,24 @@ ABOUTA11YFIRST\
     'title': 'Heading / Paragraph Help',
     'content': '\
 HEADINGHELP\
+'
+  },
+
+  listHelp: {
+    'menu':  'List',
+    'label': 'List',
+    'title': 'List Help',
+    'content' : '\
+LISTHELP\
+'
+  },
+
+  imageHelp: {
+    'menu':  'Image',
+    'label': 'Image',
+    'title': 'Image Help',
+    'content' : '\
+IMAGEHELP\
 '
   },
 
@@ -71,5 +55,24 @@ INLINESTYLEHELP\
     'content' : '\
 LINKHELP\
 '
+  },
+
+  gettingStarted: {
+    'menu':  'Getting Started',
+    'label': 'Getting Started',
+    'title': 'Getting Started with A11yFirst',
+    'content': '\
+GETTINGSTARTED\
+'
+  },
+
+  aboutA11yFirst: {
+    'menu':  'About A11yFirst',
+    'label': 'About A11yFirst',
+    'title': 'Description of A11yFirst Project',
+    'content': '\
+ABOUTA11YFIRST\
+'
   }
+
 } );
